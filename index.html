@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: #dcd9d9;
+            margin: 0;
+        }
+
+        header {
+            position: sticky;
+        }
+
+        .div-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            position: relative;
+            background-color: #000000;
+            gap: 10px;
+        }
+
+        .logo {
+            color: white;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        nav {
+            background-color: #000000;
+            position: relative;
+            background: none;
+            padding: 0;
+            position: relative;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        .menu-nav {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .header-img {
+            background: url("./img/sea.webp") center/cover no-repeat;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+            justify-content: center;
+        }
+
+        p,
+        h1 {
+            color: white;
+        }
+
+        .sales {
+            width: 300px;
+            background-color: #000000;
+            opacity: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding-left: 0;
+            max-width: 90%;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .sales h1 {
+            font-size: 20px;
+        }
+
+        .sales p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        @media (max-width: 760px) {
+
+            .header-img {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding-left: 20px;
+                height: 250px;
+            }
+
+            .sales {
+                width: 250px;
+            }
+
+            .menu-btn {
+                display: block;
+                width: 30px;
+                height: 20px;
+                position: relative;
+                cursor: pointer;
+                z-index: 101;
+            }
+
+            .burger,
+            .burger::before,
+            .burger::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 3px;
+                background-color: #ffffff;
+                position: absolute;
+
+            }
+
+            .burger {
+                top: 50%;
+            }
+
+            .burger::before {
+                top: -8px;
+            }
+
+            .burger::after {
+                top: 8px;
+            }
+
+            .menu-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 220px;
+                background: black;
+                z-index: 100;
+            }
+
+            .menu-nav li {
+                width: 100%;
+            }
+
+            .menu-nav a {
+                display: block;
+                padding: 12px 20px;
+                border-bottom: 1px solid #ffffff;
+            }
+
+
+            #menu-toggle:checked~.menu-nav {
+                display: flex;
+            }
+
+            #menu-toggle:checked~.menu-btn .burger {
+                transform: rotate(45deg);
+            }
+
+            #menu-toggle:checked~.menu-btn .burger::before {
+                top: 0;
+                opacity: 0;
+            }
+
+            #menu-toggle:checked~.menu-btn .burger::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="div-nav">
+            <h2 class="logo">Digital Store</h2>
+            <nav>
+                <input type="checkbox" id="menu-toggle" />
+
+                <label for="menu-toggle" class="menu-btn">
+                    <span class="burger"></span>
+                </label>
+
+                <ul class="menu-nav">
+                    <li><a href="#">Головна</a></li>
+                    <li><a href="#">Товари</a></li>
+                    <li><a href="#">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-img">
+            <div class="sales">
+                <h1>Знижки до -50%</h1>
+                <p>Кращі гаджети для навчання та роботи</p>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
